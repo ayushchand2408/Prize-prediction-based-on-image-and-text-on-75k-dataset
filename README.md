@@ -1,0 +1,44 @@
+﻿# Prize-prediction-based-on-image-and-text-on-75k-dataset
+
+ml_hackathon
+Aggressive Pricing Model (Feature Engineered LightGBM + Ridge Stacking)
+
+This project builds an advanced price prediction model for product catalogs using aggressive feature engineering, TF-IDF text embeddings, and a stacked regression pipeline combining LightGBM and Ridge Regression.
+
+⚙️ Key Features
+
+Advanced Feature Engineering
+
+Extracts numeric, unit, and quantity patterns from product descriptions.
+
+Derives semantic features like brand, category, and packaging information.
+
+Calculates text-based statistics (length, word count, etc.).
+
+Text Vectorization
+
+Applies TF-IDF on product descriptions with n-gram (1–3) range.
+
+Reduces dimensionality using Truncated SVD for compact latent features.
+
+Target Encoding
+
+Performs K-Fold Out-Of-Fold Target Encoding for categorical features such as brand and category based on median prices.
+
+Model Architecture
+
+Base Model: LightGBM regression trained on log1p(price) targets.
+
+Meta Model: Ridge regression stacking over OOF LightGBM predictions.
+
+Includes RobustScaler normalization for consistent training stability.
+
+Evaluation Metrics
+
+Computes SMAPE, MAE, RMSE, and R² for performance tracking.
+
+🧩 Tech Stack
+
+Languages: Python (3.8+)
+
+Libraries: pandas, numpy, scikit-learn, LightGBM, re, warnings
